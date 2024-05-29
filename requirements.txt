@@ -1,0 +1,11 @@
+streamlit
+streamlit_option_menu
+extra-streamlit-components
+streamlit_elements==0.1.0
+requests
+time
+os
+groq
+gtts
+langdetect
+speech_recognition
