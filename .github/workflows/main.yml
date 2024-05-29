@@ -1,0 +1,33 @@
+name: Déploiement vers Hugging Face Space
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions: read-all
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install transformers huggingface_hub
+
+      - name: Run deployment script
+        run: |
+          python deploy_to_huggingface.py
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
