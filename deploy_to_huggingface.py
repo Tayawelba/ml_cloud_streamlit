@@ -4,7 +4,7 @@ from huggingface_hub import HfApi, upload_folder
 def deploy_to_huggingface():
     # Récupérer le token d'authentification de Hugging Face
     hf_token = os.getenv('HF_TOKEN')
-    repo_name = "tayawelba/ml_cloud_streamlit"
+    repo_name = "spaces/tayawelba/ml_cloud_streamlit"
 
     # Authentifier
     api = HfApi()
