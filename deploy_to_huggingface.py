@@ -10,13 +10,13 @@ def deploy_to_huggingface():
     folder_path = "."
 
     # Créer un objet HfFolder pour gérer le téléchargement des fichiers
-    hf_folder = HfFolder()
+    hf_folder = HfFolder()  # Corrected line
 
     # Upload de chaque fichier/dossier
     for file_name in os.listdir(folder_path):
         if file_name != "upload_to_hf.py":
             file_path = os.path.join(folder_path, file_name)
-            hf_folder.push_to_hub(path=file_path, repo_id=space_name, token=hf_token)
+            hf_folder.upload(file_path, space_name, token=hf_token)
 
 if __name__ == '__main__':
     deploy_to_huggingface()
